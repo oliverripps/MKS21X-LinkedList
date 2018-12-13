@@ -4,16 +4,27 @@ class Node{
 
  public Node(Node referencefrom, int num,Node referenceto){
    data=num;
-   next=reference;
+   next=referenceto;
    prev=referencefrom;
  }
  class MyLinkedList{
  private int size;
  private Node start,end;
 
- public int size();
- public boolean add(int value);
- public String toString();
+ public MyLinkedList(int len, Node first, Node last){
+   size=len;
+   first=start;
+   end=last;
+ }
+ public int size(){
+   return size;
+ }
+ /*public boolean add(int value);{
+
+ }
+ public String toString();{
+
+ }*/
 }
 
 
