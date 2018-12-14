@@ -3,13 +3,13 @@ private int length;
 private Node start,end;
 
 public MyLinkedList(){
-
 }
 
-/*public boolean add(int value){
-  Node end2=
+public boolean add(int value){
+  Node newend = newNode(end,value,null);
+  end.setNext(newend);
 
-}*/
+}
 public int size(){
   return length;
 }
@@ -41,14 +41,36 @@ public Integer set(int index, Integer value){
   current.setData(value);
   return olddata;
 }
-/*public boolean contains(Integer value){
-
+public boolean contains(Integer value){
+  Node current=start;
+  for(int i =0;i<length;i++){
+    if (current.getData()==value){
+      return true;
+    }
+    current=current.next();
+  }
+  return false;
 }
+
 public int indexOf(Integer value){
-
+  Node current=start;
+  int indof=-1;
+  for(int i =0;i<length;i++){
+    if (current.getData()==value){
+      indof=i;
+      }
+    current=current.next();
+    }
+  return indof;
+  }
+/*public void add(int index, Integer value){
+  Node current= start;
+  for(int i =0;i<index+1;i++){
+  current=current.next();
 }
-public void add(int index, Integer value){
-
+  Integer olddata=current.getData();
+  current.setData(value);
+  return olddata;
 }
 public boolean remove(Integer value){
 
