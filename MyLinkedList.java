@@ -6,9 +6,10 @@ public MyLinkedList(){
 }
 
 public boolean add(int value){
-  Node newend = newNode(end,value,null);
+  Node newend = new Node(end,value,null);
   end.setNext(newend);
-
+  return true;
+  length++;
 }
 public int size(){
   return length;
@@ -71,6 +72,7 @@ public int indexOf(Integer value){
   Integer olddata=current.getData();
   current.setData(value);
   return olddata;
+  length++;
 }
 public boolean remove(Integer value){
 
