@@ -38,16 +38,21 @@ public String toString(){
   str+="]";
   return str;
 }
+private Node getNthNode(int N){
+  Node current=start;
+  Node next=start.next();
+  for(int i=0;i<N;i++){
+    current=current.next();
+    next=current.next();
+  }
+  return current;
+}
 public Integer get(int index){
   if(index>length || index<0){
     throw new IndexOutOfBoundsException();
   }
   return getNthNode(index).getData();
-  /*Node current=start;
-  for(int i=0;i<length;i++){
-    current=current.next();
-  }
-  return current.getData();*/
+
 }
 public Integer set(int index, Integer value){
   Node current= start;
