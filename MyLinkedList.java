@@ -47,6 +47,7 @@ private Node getNthNode(int N){
   }
   return current;
 }
+
 public Integer get(int index){
   if(index>length || index<0){
     throw new IndexOutOfBoundsException();
@@ -55,14 +56,17 @@ public Integer get(int index){
 
 }
 public Integer set(int index, Integer value){
-  Node current= start;
-  for(int i =0;i<index+1;i++){
-  current=current.next();
+  if(index>=0 && index<=length-1){
+    Integer valuebefore;
+    Node spot = getNthNode(index);
+    valuebefore=spot.getData();
+    spot.setData(value);
+    return valuebefore;
 }
-  Integer olddata=current.getData();
-  current.setData(value);
-  return olddata;
+  else{
+    throw new IndexOutOfBoundsException();}
 }
+
 public boolean contains(Integer value){
   Node current=start;
   for(int i =0;i<length;i++){
