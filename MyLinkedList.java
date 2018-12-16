@@ -21,27 +21,33 @@ public boolean add(int value){
     length++;
     return true;
   }
+}
+
 public int size(){
   return length;
 }
 public String toString(){
   Node current=start;
-  String str = "{";
+  String str = "[";
   for(int i=0;i<length;i++){
     str+=(current.next()).getData();
     if(i<length-1){
     str+=",";
   }
 }
-  str+="}";
+  str+="]";
   return str;
 }
 public Integer get(int index){
-  Node current=start;
+  if(index>length || index<0){
+    throw new IndexOutOfBoundsException();
+  }
+  return getNthNode(index).getData();
+  /*Node current=start;
   for(int i=0;i<length;i++){
     current=current.next();
   }
-  return current.getData();
+  return current.getData();*/
 }
 public Integer set(int index, Integer value){
   Node current= start;
