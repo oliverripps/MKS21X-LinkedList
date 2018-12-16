@@ -81,7 +81,7 @@ public boolean contains(Integer value){
 public int indexOf(Integer value){
   Node current=start;
   int indof=-1;
-  for(int i =0;i<length;i++){
+  for(int i =0;current!=null;i++){
     if (current.getData()==value){
       indof=i;
       }
