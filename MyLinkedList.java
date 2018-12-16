@@ -29,12 +29,14 @@ public int size(){
 public String toString(){
   Node current=start;
   String str = "[";
-  for(int i=0;i<length;i++){//for each node, add value to a list
-    str+=(current.next()).getData();
-    if(i<length-1){
-    str+=",";
+  while(current!=null){//for each node, add value to a list
+    if(current.getData()!=null){//if has value,add it
+      str+=current.getData();
+    }
+    if(current.next()!=null){//if not the last one, add ","
+      str+=",";
+    }
   }
-}
   str+="]";
   return str;
 }
