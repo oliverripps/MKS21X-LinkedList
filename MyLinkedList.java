@@ -3,8 +3,8 @@ private int length;
 private Node start,end;
 
 public MyLinkedList(){
-  start=null;
-  end=null;
+  start= null;
+  end= null;
   length=0;
 }
 
@@ -27,19 +27,18 @@ public int size(){
   return length;
 }
 public String toString(){
-  Node current=start;
+  if (length == 0){
+      return "[]";
+    }
   String str = "[";
-  while(current!=null){//for each node, add value to a list
-    if(current.getData()!=null){//if has value,add it
-      str+=current.getData();
+  Node current = start;
+  while (current.next() != null){
+      str += current.getData() + ",";
+      current = current.next();
     }
-    if(current.next()!=null){//if not the last one, add ","
-      str+=",";
-    }
+    return str + end.getData() + "]";
   }
-  str+="]";
-  return str;
-}
+
 private Node getNthNode(int N){
   Node current=start;
   for(int i=0;i<N;i++){//loop through list untill you reach N

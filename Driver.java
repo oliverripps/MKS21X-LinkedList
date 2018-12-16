@@ -7,7 +7,7 @@ public class Driver {
     System.out.println("---- Testing toString() / add(value) / size() ----");
     System.out.println();
     MyLinkedList list = new MyLinkedList();
-    System.out.println("Empty List should print []: " + list);
+    System.out.println("Empty List should print []: " + list.toString());
     System.out.println("List size should be 0: " + list.size());
     System.out.println("Adding the value 0 should print true: " + list.add(0));
     System.out.println("List should now be [0]: " + list);
