@@ -89,17 +89,28 @@ public int indexOf(Integer value){
     }
   return indof;
   }
-/*public void add(int index, Integer value){
-  Node current= start;
-  for(int i =0;i<index+1;i++){
-  current=current.next();
+public void add(int index, Integer value){
+  if(index==length-1){
+    add(value);
+  }
+  else if(index==0){
+    Node newstart = new Node (null, value, null);
+    start.setPrev(newstart);
+    newstart.setNext(start);
+    start=newstart;
+    length++;
+  }
+  else if(index<0 ||index>=length){
+    throw new IndexOutOfBoundsException();
+  }
+  else{
+    Node newnode = new Node(getNthNode(index), value, getNthNode(index+1));
+    newnode.setNext(getNthNode(index));
+    getNthNode(index).next().setPrev(newnode);
+    getNthNode(index).setNext(newnode);
+  }
 }
-  Integer olddata=current.getData();
-  current.setData(value);
-  return olddata;
-  length++;
-}
-public boolean remove(Integer value){
+/*public boolean remove(Integer value){
 
 }*/
 //EXCPETIONS!!!
