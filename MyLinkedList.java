@@ -11,7 +11,8 @@ public MyLinkedList(){
 public boolean add(int value){
   if(length!=0){//if there is a list
     Node newend = new Node(end,value,null);//setting a new end
-    end.prev().setNext(end);//setting the old end to direct to the new end
+    end.setNext(newend);//setting the old end to direct to the new end
+    end=newend;
     length++;//increasing the length by one
     return true;
 }
