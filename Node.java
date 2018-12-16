@@ -24,9 +24,9 @@ class Node{
    return data;
  }
  public Integer setData(Integer i){
-   Integer olddata=data;
-   data=i;
-   return olddata;
+   Integer olddata=data;//remembering old data
+   data=i;//setting new
+   return olddata;//returning the old data
  }
  public String toString(){
    return "" + data;
