@@ -69,7 +69,7 @@ public Integer set(int index, Integer value){
 
 public boolean contains(Integer value){
   Node current=start;
-  for(int i =0;i<length;i++){
+  for(int i =0;current!=null;i++){
     if (current.getData()==value){
       return true;
     }
