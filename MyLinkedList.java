@@ -3,14 +3,24 @@ private int length;
 private Node start,end;
 
 public MyLinkedList(){
+  start=null;
+  end=null;
+  length=0;
 }
 
 public boolean add(int value){
-  Node newend = new Node(end,value,null);
-  end.setNext(newend);
-  return true;
-  length++;
+  if(length!=0){
+    Node newend = new Node(end,value,null);
+    end.prev().setNext(end);
+    length++;
+    return true;
 }
+  else{
+    end=new Node(null,value,null);
+    start=end;
+    length++;
+    return true;
+  }
 public int size(){
   return length;
 }
