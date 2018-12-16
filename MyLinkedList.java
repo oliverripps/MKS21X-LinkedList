@@ -131,10 +131,18 @@ public void add(int index, Integer value){
   }
 
   public boolean remove(Integer value){
-    Node current = start;
-    for(int i =0; current!=null;i++){
-
+    if(!contains(value)){//if value isn't in the linked list, return false
+      return false;
     }
-
-}
+    else{
+      Node current = start;
+      for(int i =0; current!=null;i++){//loop through list
+        if(current.getData()==value){//if node's value is equal to the value, remove that index
+          remove(i);
+        }
+        current=current.next();
+      }
+      return true;
+    }
+  }
 }
