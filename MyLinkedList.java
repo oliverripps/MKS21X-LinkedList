@@ -111,20 +111,18 @@ public void add(int index, Integer value){
     if(index<0 || index>length){//if the index is out of bounds, through exception
       throw new IndexOutOfBoundsException();
     }
-    if(index=length-1){//if removing last
-      Node current = getNthNode(index);//creating a temporary current for the node at index
+    Node current = getNthNode(index);//creating a temporary current for the node at index
+    if(index==length-1){//if removing last
       current.prev().setNext(null);//second to last has no next reference
       end=current.prev();//last is now second to last
     }
     else if(index==0){//if removing first
-    Node current = getNthNode(index);//creating a temporary current for the node at index
-    current.next().setPrev(null);//making second node have no previous
-    start=current.next();//setting start to second
+      current.next().setPrev(null);//making second node have no previous
+      start=current.next();//setting start to second
   }
     else{
-      Node current = getNthNode(index);//creating a temporary current for the node at index
-      Node before= temp.prev();//before remove
-      Node after = temp.next();//after remove
+      Node before= current.prev();//before remove
+      Node after = current.next();//after remove
       after.setPrev(before);//after's previous skips current
       before.setNext(after);//before's next skips current
     }
