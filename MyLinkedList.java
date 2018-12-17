@@ -147,4 +147,9 @@ public void add(int index, Integer value){
       return true;
     }
   }
+  public void extend(MyLinkedList other){
+        //in O(1) runtime, move the elements from other onto the end of this
+        //The size of other is reduced to 0
+        //The size of this is now the combined sizes of both original lists
+    }
 }
