@@ -90,7 +90,7 @@ public int indexOf(Integer value){
   return indof;//return marked value or -1
   }
 public void add(int index, Integer value){
-  if(index==length-1){//if index is last element, use old add
+  if(index==length){//if index is last element, use old add
     add(value);
   }
   else if(index==0){//if index is zero, trigger add to the beggining
@@ -100,7 +100,7 @@ public void add(int index, Integer value){
     start=newstart;
     length++;
   }
-  else if(index<0 ||index>=length){//if the index is out of bounds, through exception
+  else if(index<0 ||index>length){//if the index is out of bounds, through exception
     throw new IndexOutOfBoundsException();
   }
   else{
