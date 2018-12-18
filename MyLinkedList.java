@@ -28,7 +28,7 @@ public int size(){
   return length;
 }
 public String toString(){
-  if (length == 0){
+  if (length == 0){//looping through and adding values to a string with commas
       return "[]";
     }
   String str = "[";
@@ -104,9 +104,9 @@ public void add(int index, Integer value){
   else{
     Node previous= getNthNode(index-1);//before
     Node current= getNthNode(index);//current
-    Node temporary= new Node(getNthNode(index-1),value,getNthNode(index));
-    getNthNode(index).setPrev(temporary);
-    getNthNode(index-1).setNext(temporary);
+    Node temporary= new Node(getNthNode(index-1),value,getNthNode(index));//creative inserting current
+    getNthNode(index).setPrev(temporary);//setting the next one to have the new addition as its previous
+    getNthNode(index-1).setNext(temporary);//setting the one before to have next reference as current
     length++;
   }
 }
