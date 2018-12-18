@@ -114,23 +114,23 @@ public void add(int index, Integer value){
 
 
   public Integer remove(int index){
-    if(index<0 || index>length){//if the index is out of bounds, through exception
+    if(index<0 || index>=length){//if the index is out of bounds, through exception
       throw new IndexOutOfBoundsException();
     }
     Node current = getNthNode(index);//creating a temporary current for the node at index
-    if(index==length-1){//if removing last
-      current.prev().setNext(null);//second to last has no next reference
-      end=current.prev();//last is now second to last
+    Node after = current.next();
+    Node before = current.prev();
+    if(index==0){//if removing first
+      after.setPrev(null);
+      start=after;
     }
-    else if(index==0){//if removing first
-      current.next().setPrev(null);//making second node have no previous
-      start=current.next();//setting start to second
-  }
+    else if(index==length-1){//if removing last
+      before.setNext(null);
+      end=before;;
+    }
     else{
-      Node before= current.prev();//before remove
-      Node after = current.next();//after remove
-      after.setPrev(before);//after's previous skips current
-      before.setNext(after);//before's next skips current
+      after.setPrev(before);
+      before.setNext(after);
     }
     length--;
     return current.getData();//returning old data
