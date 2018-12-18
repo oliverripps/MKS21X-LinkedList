@@ -34,7 +34,7 @@ public String toString(){
   String str = "[";
   Node current = start;
   while (current.next() != null){
-      str += current.getData() + ",";
+      str += current.getData() + ", ";
       current = current.next();
     }
     return str + end.getData() + "]";
@@ -90,25 +90,23 @@ public int indexOf(Integer value){
   return indof;//return marked value or -1
   }
 public void add(int index, Integer value){
-  if(index==length-1){//if index is last element, use old add
-    add(value);
-  }
-  else if(index==0){//if index is zero, trigger add to the beggining
-    Node newstart = new Node (null, value, null);//create new beggining
-    start.setPrev(newstart);//make the old start the second element
-    newstart.setNext(start);
-    start=newstart;
-    length++;
-  }
-  else if(index<0 ||index>=length){//if the index is out of bounds, through exception
+  if(index<0 || index> size()){//if indeces out of range throw exception
     throw new IndexOutOfBoundsException();
   }
+  else if(index==size()){//if index is equal to size, use regular added
+    add(value);
+  }
   else{
-    Node newnode = new Node(getNthNode(index-1), value, getNthNode(index));//create new node which comes is inbetween the two
-    getNthNode(index).next().setPrev(newnode);//set the index after to have its previous be new one
-    getNthNode(index-1).setNext(newnode);//set the one behind it to have new one as next
+    Node previous= getNthNode(index-1);
+    Node current= getNthNode(index);
+    Node temporary= new Node(getNthNode(index-1),value,getNthNode(index));
+    getNthNode(index).setPrev(temporary);
+    getNthNode(index-1).setNext(temporary);
+    length++;
   }
 }
+
+
   public Integer remove(int index){
     if(index<0 || index>length){//if the index is out of bounds, through exception
       throw new IndexOutOfBoundsException();
