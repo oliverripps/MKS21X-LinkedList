@@ -68,15 +68,14 @@ public Integer set(int index, Integer value){
 }
 
 public boolean contains(Integer value){
-  Node current=start;
-  for(int i =0;current!=null;i++){//while there is still a next node
-    if (current.getData()==value){//if the value of any node is the value you are checking for return true
+  for(int i =0;i<size();i++){//while there is still a next node
+    if (getNthNode(i).getData()==value){//if the value of any node is the value you are checking for return true
       return true;
     }
-    current=current.next();
   }
   return false;
 }
+
 
 public int indexOf(Integer value){
   Node current=start;
@@ -103,8 +102,8 @@ public void add(int index, Integer value){
     length++;
   }
   else{
-    Node previous= getNthNode(index-1);
-    Node current= getNthNode(index);
+    Node previous= getNthNode(index-1);//before
+    Node current= getNthNode(index);//current
     Node temporary= new Node(getNthNode(index-1),value,getNthNode(index));
     getNthNode(index).setPrev(temporary);
     getNthNode(index-1).setNext(temporary);
@@ -129,8 +128,10 @@ public void add(int index, Integer value){
       end=before;;
     }
     else{
-      after.setPrev(before);
+      after.setPrev(before);//cutting the middle one out
       before.setNext(after);
+      current.setNext(null);
+      current.setPrev(null);
     }
     length--;
     return current.getData();//returning old data
