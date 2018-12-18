@@ -100,7 +100,7 @@ public void add(int index, Integer value){
     Node newstart= new Node(null,value,this.start);
     start.setPrev(newstart);
     start=newstart;
-    length++
+    length++;
   }
   else{
     Node previous= getNthNode(index-1);
@@ -141,16 +141,12 @@ public void add(int index, Integer value){
       return false;
     }
     else{
-      Node current = start;
-      for(int i =0; current!=null;i++){//loop through list
-        if(current.getData()==value){//if node's value is equal to the value, remove that index
-          remove(i);
-        }
-        current=current.next();
-      }
+      int i=indexOf(value);//find the value
+      remove(i);//remove it
       return true;
     }
   }
+
   public void extend(MyLinkedList other){
        if(this.length==0){//if the original length is 0
          for(int i=0;other.length!=0;i++){//loop through other and just add on
