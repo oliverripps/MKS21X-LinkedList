@@ -96,6 +96,12 @@ public void add(int index, Integer value){
   else if(index==size()){//if index is equal to size, use regular added
     add(value);
   }
+  else if(index==0){
+    Node newstart= new Node(null,value,this.start);
+    start.setPrev(newstart);
+    start=newstart;
+    length++
+  }
   else{
     Node previous= getNthNode(index-1);
     Node current= getNthNode(index);
