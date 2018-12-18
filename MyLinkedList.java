@@ -147,4 +147,14 @@ public void add(int index, Integer value){
       return true;
     }
   }
+  public void extend(MyLinkedList other){
+       if(length==0){
+         for(int i=0;other.length!=0;i++){
+           this.add(i,other.getNthNode(i).getData());
+           other.length--;
+         }
+       }//in O(1) runtime, move the elements from other onto the end of this
+       //The size of other is reduced to 0
+       //The size of this is now the combined sizes of both original lists
+   }
 }
