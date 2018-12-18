@@ -148,14 +148,20 @@ public void add(int index, Integer value){
     }
   }
   public void extend(MyLinkedList other){
-       if(length==0){
-         for(int i=0;other.length!=0;i++){
+       if(this.length==0){//if the original length is 0
+         for(int i=0;other.length!=0;i++){//loop through other and just add on
            this.add(i,other.getNthNode(i).getData());
            other.length--;
          }
        }
-       //in O(1) runtime, move the elements from other onto the end of this
-       //The size of other is reduced to 0
-       //The size of this is now the combined sizes of both original lists
+       if(other.size()!=0){//if the list has not been added(or is empty)
+         end.setNext(other.start);//set the element after the last in #1 to the start of #2
+         other.start.setPrev(end);//first element of other list's previous is now first list's end
+         end=other.end;//set end as other end
+         other.start=null;//practically eliminating the other list
+         other.end=null;
+         length+=other.length;//increasing the length
+         other.length=0;//setting the other length to 0
+       }
    }
 }
